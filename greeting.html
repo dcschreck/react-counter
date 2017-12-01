@@ -11,19 +11,33 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
       <script type="text/babel">
         class Greeting extends React.Component {
+
+            constructor(props){
+                super(props);
+                this.state = {
+                    name: 'Doug'
+                }
+            }
+
             render() {
                 return (
                     <div>
-                        <h1>Hello {this.props.name}!</h1>
+                        <h1>Hello {this.state.name}!</h1>
+                        <img src={this.props.image} alt="hi!"/>
                     </div>
                 );
             }
         }
 
-        ReactDOM.render(
-            <Greeting name="Bloc Studnet"/>, document.getElementById('app')
-        );
-      </script>
-  </body>
+        const info = {
+            image: 'http://pngimg.com/uploads/hello/hello_PNG24.png',
+        }
 
+        ReactDOM.render(
+            <Greeting
+                image ={info.image}/>, document.getElementById('app')
+        );
+
+    </script>
+  </body>
 </html>
